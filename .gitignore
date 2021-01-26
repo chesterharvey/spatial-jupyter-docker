@@ -97,7 +97,10 @@ celerybeat-schedule
 *.sage.py
 
 # Environments
-.env
+# Private settings
+#.env
+# Non-private settings
+.env.local
 .venv
 env/
 venv/
