@@ -1,6 +1,6 @@
-# python-data-science-project
+# spatial-jupyter-docker
 
-Repository containing scaffolding for a Python 3-based geodata science project with jupyter IDE.
+Scaffolding for building a dockerized Python 3-based spatial data science project with jupyter lab.
 
 Modified from [kaust-vislab/python-data-science-project](https://github.com/kaust-vislab/python-data-science-project)
 
