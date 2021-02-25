@@ -1,4 +1,4 @@
-name: null
+name: env
 
 channels:
   - conda-forge
@@ -8,13 +8,27 @@ dependencies:
   - gh
   - git
   - ipython-sql
+  - jupyter-lsp-python
   - jupyterlab
   - jupyterlab-git
   - matplotlib
   - nodejs
   - pandas
+  - geopandas
+  - osmnx
+  - flask
+  - dash
+  - plotly
+  - plotly_express
   - pip
   - pip:
-    - -r file:requirements.txt
+#    - jupyter-lsp
+    - python-language-server[all]
+    - git+https://github.com/chesterharvey/StreetSpace
+#    - git+https://github.com/chesterharvey/StreetSpace#egg=streetspace
+#    - -r file:requirements.txt
   - python
+  - python-levenshtein
+  - pyscaffold
+  - seaborn
   - xeus-python

@@ -1,16 +1,16 @@
 FROM ubuntu:18.04
 
-LABEL maintainer="pughdr <david.pugh@kaust.edu.sa>"
+LABEL maintainer="chesterharvey <chesterharvey@gmail.com>"
 
 SHELL [ "/bin/bash", "--login", "-c" ]
 
 RUN apt-get update --fix-missing && \
-    apt-get install -y wget bzip2 curl git && \
+    apt-get install -y wget bzip2 curl git gcc build-essential && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
 # Create a non-root user
-ARG username=al-khawarizmi
+ARG username=oski
 ARG uid=1000
 ARG gid=100
 ENV USER $username
@@ -25,7 +25,9 @@ RUN adduser --disabled-password \
     --home $HOME \
     $USER
 
-COPY environment.yml requirements.txt /tmp/
+COPY environment.yml /tmp/
+RUN true
+COPY requirements.txt /tmp/
 RUN chown $UID:$GID /tmp/environment.yml /tmp/requirements.txt
 
 COPY postBuild /usr/local/bin/postBuild.sh
@@ -62,7 +64,10 @@ WORKDIR $PROJECT_DIR
 
 # build the conda environment
 ENV ENV_PREFIX $PROJECT_DIR/env
-RUN conda update --name base --channel defaults conda && \
+RUN conda config --prepend channels conda-forge && \
+    conda config --set channel_priority strict && \
+#    conda update --name base --channel defaults conda && \
+#    conda update --name base && \
     conda env create --prefix $ENV_PREFIX --file /tmp/environment.yml --force && \
     conda clean --all --yes
 

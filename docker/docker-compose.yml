@@ -2,6 +2,7 @@ version: "3.7"
 
 services:
   jupyterlab-server:
+    image: chesterharvey/docker_test
     build:
       args:
         - username=${USER}
@@ -20,4 +21,4 @@ services:
       - ../src:/home/${USER}/app/src
     init: true
     stdin_open: true
-    tty: true    
+    tty: true
