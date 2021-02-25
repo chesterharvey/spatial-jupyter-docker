@@ -1,6 +1,8 @@
 # python-data-science-project
 
-Repository containing scaffolding for a Python 3-based data science project. 
+Repository containing scaffolding for a Python 3-based geodata science project with jupyter IDE.
+
+Modified from [kaust-vislab/python-data-science-project](https://github.com/kaust-vislab/python-data-science-project)
 
 ## Creating a new project from this template
 
